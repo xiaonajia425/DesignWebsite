@@ -1,0 +1,15 @@
+<svg width="241" height="32" viewBox="0 0 241 32" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M240.5 0.5V31.5H0.5V0.5H240.5Z" fill="url(#frameFill)" stroke="#8B8B8B"/>
+  <mask id="dotMask" maskUnits="userSpaceOnUse" x="6" y="1" width="232" height="30">
+    <rect x="6" y="1" width="232" height="30" fill="url(#dotPattern)"/>
+  </mask>
+  <g mask="url(#dotMask)"><rect x="6" y="1" width="232" height="30" fill="#797979"/></g>
+  <rect x="190" y="1" width="50" height="30" fill="url(#rightFade)"/>
+  <rect width="50" height="30" transform="matrix(-1 0 0 1 51 1)" fill="url(#leftFade)"/>
+  <defs>
+    <pattern id="dotPattern" patternUnits="userSpaceOnUse" width="4" height="4"><circle cx=".7" cy=".7" r=".55" fill="#8B8B8B"/></pattern>
+    <linearGradient id="frameFill" x1="120.5" y1="0" x2="120.5" y2="32" gradientUnits="userSpaceOnUse"><stop stop-color="#323232"/><stop offset="1" stop-color="#080808"/></linearGradient>
+    <linearGradient id="rightFade" x1="191.667" y1="16.714" x2="238.333" y2="16.714" gradientUnits="userSpaceOnUse"><stop stop-color="#131314" stop-opacity="0"/><stop offset="1" stop-color="#131314"/></linearGradient>
+    <linearGradient id="leftFade" x1="1.667" y1="15.714" x2="48.333" y2="15.714" gradientUnits="userSpaceOnUse"><stop stop-color="#131314" stop-opacity="0"/><stop offset="1" stop-color="#131314"/></linearGradient>
+  </defs>
+</svg>

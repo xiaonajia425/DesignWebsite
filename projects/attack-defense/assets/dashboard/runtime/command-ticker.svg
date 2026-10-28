@@ -1,0 +1,71 @@
+<svg width="314" height="30" viewBox="0 0 314 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<path d="M249.772 9.15039L240.901 29.8496H56.7275L65.5986 9.15039H249.772Z" fill="#49111D" fill-opacity="0.8" stroke="#C25656" stroke-width="0.3"/>
+<mask id="mask0_30_1669" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="66" y="11" width="174" height="17">
+<rect x="66" y="11" width="174" height="17" fill="url(#pattern0_30_1669)"/>
+</mask>
+<g mask="url(#mask0_30_1669)">
+<rect x="66" y="11" width="174" height="17" fill="#8E1E1E" fill-opacity="0.5"/>
+</g>
+<path d="M65.0002 9H92.0002V30H57V24L65.0002 9Z" fill="url(#paint0_linear_30_1669)"/>
+<path d="M250 9H211V30H241L250 9Z" fill="url(#paint1_linear_30_1669)"/>
+<g filter="url(#filter0_i_30_1669)">
+<path d="M7 4H66V8.5L60 23H7V4Z" fill="#661C17"/>
+</g>
+<path d="M254 4H314L307 20H247L254 4Z" fill="#661C17"/>
+<mask id="mask1_30_1669" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="8" y="5" width="50" height="17">
+<rect x="8" y="5" width="50" height="17" fill="url(#pattern1_30_1669)"/>
+</mask>
+<g mask="url(#mask1_30_1669)">
+<rect x="8" y="5" width="50" height="17" fill="url(#paint2_linear_30_1669)"/>
+</g>
+<g filter="url(#filter1_f_30_1669)">
+<rect x="4" y="4" width="2" height="19" fill="#E8142B"/>
+</g>
+<rect x="4" y="4" width="2" height="19" fill="#E8142B"/>
+<path d="M66 4H68L57 30H55L66 4Z" fill="url(#paint3_linear_30_1669)"/>
+<path d="M252 4H254L243 30H241L252 4Z" fill="url(#paint4_linear_30_1669)"/>
+<defs>
+<pattern id="pattern0_30_1669" patternContentUnits="objectBoundingBox" width="0.0229885" height="0.235294">
+<use xlink:href="#image0_30_1669" transform="scale(0.00287356 0.0294118)"/>
+</pattern>
+<filter id="filter0_i_30_1669" x="7" y="4" width="59" height="20" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1.5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.840202 0 0 0 0 0.441913 0 0 0 0 0.441913 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_30_1669"/>
+</filter>
+<pattern id="pattern1_30_1669" patternContentUnits="objectBoundingBox" width="0.08" height="0.235294">
+<use xlink:href="#image0_30_1669" transform="scale(0.01 0.0294118)"/>
+</pattern>
+<filter id="filter1_f_30_1669" x="0" y="0" width="10" height="27" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur_30_1669"/>
+</filter>
+<linearGradient id="paint0_linear_30_1669" x1="59.1333" y1="19.5" x2="90.8667" y2="19.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#410707"/>
+<stop offset="1" stop-color="#1E1416" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint1_linear_30_1669" x1="240" y1="19.5" x2="212" y2="19.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#410707"/>
+<stop offset="1" stop-color="#1E1416" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint2_linear_30_1669" x1="8" y1="13.5" x2="58" y2="13.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A22119"/>
+<stop offset="1" stop-color="#A22119" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint3_linear_30_1669" x1="61.5" y1="4" x2="61.5" y2="30" gradientUnits="userSpaceOnUse">
+<stop stop-color="#AF2828"/>
+<stop offset="1" stop-color="#AF2828"/>
+</linearGradient>
+<linearGradient id="paint4_linear_30_1669" x1="247.5" y1="4" x2="247.5" y2="30" gradientUnits="userSpaceOnUse">
+<stop stop-color="#AF2828"/>
+<stop offset="1" stop-color="#AF2828"/>
+</linearGradient>
+<image id="image0_30_1669" width="8" height="8" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAkSURBVHgBzY6xCQAACICk/x/0miJoag8SHNxEzZZhd3DPg4cChvgcVQJorT4AAAAASUVORK5CYII="/>
+</defs>
+</svg>

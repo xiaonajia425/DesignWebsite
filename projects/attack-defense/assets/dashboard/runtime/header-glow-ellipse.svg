@@ -1,0 +1,4 @@
+<svg preserveAspectRatio="none" width="1240" height="531" viewBox="0 0 1240 531" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g filter="url(#glowBlur)"><ellipse cx="620" cy="265.5" rx="480" ry="125.5" fill="#4D4D4D"/></g>
+  <defs><filter id="glowBlur" x="0" y="0" width="1240" height="531" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="70" result="effect1_foregroundBlur"/></filter></defs>
+</svg>

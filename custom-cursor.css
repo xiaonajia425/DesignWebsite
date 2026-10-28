@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@600&display=swap');
+/* The hero arrow and label are shared by the homepage, navigation and embedded projects. */
+.portfolio-pointer{position:fixed;top:0;left:0;z-index:2147483647;pointer-events:none;opacity:0;will-change:transform;transition:opacity .12s ease;transform:translate(-100px,-100px)}
+.portfolio-pointer>svg{width:26px;height:33px;display:block;fill:#100e11;overflow:visible;filter:drop-shadow(0 1px 1px #fff6)}
+.portfolio-pointer>span{display:grid;place-items:center;position:absolute;top:31px;left:18px;min-width:66px;height:35px;padding:0 17px;background:#100e11;color:white;white-space:nowrap;border-radius:25px;font:600 12px/1 'DM Sans','PingFang SC','Microsoft YaHei',sans-serif;box-shadow:0 8px 20px #00000008;transition:background .18s,transform .12s}
+.portfolio-pointer.is-visible{opacity:1}
+.portfolio-pointer.is-badge>svg{fill:#3e52d6}.portfolio-pointer.is-badge>span{background:#3e52d6}
+.portfolio-pointer.is-pressed>span{transform:scale(.92)}
+html.portfolio-cursor-enabled .cover-cursor-glow,html.portfolio-cursor-enabled .cursor-glow{display:none!important}
+@media(hover:hover) and (pointer:fine){
+ html.portfolio-cursor-enabled,html.portfolio-cursor-enabled body,html.portfolio-cursor-enabled *{cursor:none!important}
+ html.portfolio-cursor-enabled iframe{cursor:auto!important}
+}
+@media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.portfolio-pointer{display:none!important}}

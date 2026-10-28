@@ -1,0 +1,21 @@
+<svg width="12" height="146" viewBox="0 0 12 146" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g clip-path="url(#clip0_51_1275)">
+<g opacity="0.2">
+<mask id="mask0_51_1275" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="12" height="146">
+<rect width="12" height="146" fill="url(#pattern0_51_1275)"/>
+</mask>
+<g mask="url(#mask0_51_1275)">
+<rect width="12" height="146" fill="#16ABFF"/>
+</g>
+</g>
+</g>
+<defs>
+<pattern id="pattern0_51_1275" patternContentUnits="objectBoundingBox" width="0.583333" height="0.0479452">
+<use xlink:href="#image0_51_1275" transform="scale(0.0416667 0.00342466)"/>
+</pattern>
+<clipPath id="clip0_51_1275">
+<rect width="12" height="146" fill="white"/>
+</clipPath>
+<image id="image0_51_1275" width="14" height="14" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABDSURBVHgB7c5BCgAgCATA/bm+PCMKISlLzwp7ktEFADmE4Q8hgca+IYHEwl+0wQhSGEUKo+jZ8PaJCs24iNZlG/ZQB/MdU6RL0VzzAAAAAElFTkSuQmCC"/>
+</defs>
+</svg>

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="从基础样式到组件规范，建立一致、可维护、可交付的产品设计语言。">
+  <meta name="theme-color" content="#ffffff">
+  <title>OpsDesign System · 设计规范</title>
+  <link rel="stylesheet" href="./styles.css?v=202610275">
+  <link rel="stylesheet" href="../../custom-cursor.css?v=19">
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#top" aria-label="返回设计规范首页">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" focusable="false">
+          <path fill="#2361ff" d="M16 3A13 13 0 0 0 3 16c0 4.7 2.5 8.9 6.4 11.2l3.5-6.1A6 6 0 0 1 10 16a6 6 0 0 1 6-6V3Z"/>
+          <path fill="#6d5dfb" d="M16 3v7a6 6 0 0 1 3.1 11.1l3.5 6.1A13 13 0 0 0 29 16 13 13 0 0 0 16 3Z"/>
+        </svg>
+      </span>
+      <span class="brand-copy"><b>OpsDesign System</b><small>产品设计规范</small></span>
+    </a>
+    <div class="topbar-actions">
+      <span class="status"><i></i>V1.0 · 持续更新</span>
+      <a class="button button-ghost desktop-only" href="#skill-docs">Skill 文档</a>
+      <a class="button button-primary" href="https://www.figma.com/design/oDrcfvQVEirNWBJcu96JSz/%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83?node-id=20-5406" target="_blank" rel="noreferrer">打开 Figma <span aria-hidden="true">↗</span></a>
+      <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="移动端规范目录">
+    <a href="#color">01 颜色</a><a href="#typography">02 字体</a>
+    <a href="#spacing">03 间距</a><a href="#radius">04 圆角</a><a href="#effects">05 效果</a>
+    <a href="#button">06 按钮</a><a href="#icon">07 图标</a><a href="#input">08 输入框</a>
+    <a href="#skill-docs">09 Skill 文档</a>
+  </nav>
+
+  <main>
+    <section class="cover" id="top" data-section="top">
+      <div class="cover-glow glow-a"></div><div class="cover-glow glow-b"></div>
+      <div class="cover-grid" aria-hidden="true"></div>
+      <canvas class="cursor-grid-canvas" id="cursorGrid" aria-hidden="true"></canvas>
+      <div class="cover-content">
+        <div class="cover-copy reveal">
+          <span class="eyebrow">DESIGN SYSTEM · V1.0</span>
+          <h1>从变量到组件的<br><span>B 端设计规范展示</span></h1>
+          <p>从基础样式到组件规则，建立一套清晰、稳定、可复用的产品设计语言，让设计、研发与交付使用同一套语义。</p>
+          <div class="cover-actions">
+            <a class="button button-primary button-large" href="#color">开始浏览规范 <span aria-hidden="true">↓</span></a>
+            <a class="button button-ghost button-large" href="#skill-docs">查看 Skill 文档</a>
+          </div>
+        </div>
+        <figure class="cover-visual cover-art reveal">
+          <img src="./assets/hero-system-workspace-v2.png" width="1448" height="1086" alt="由色板、字体、图表、圆角、按钮与输入框组成的设计系统工作台">
+        </figure>
+      </div>
+      <a class="scroll-cue" href="#color"><span></span>向下探索</a>
+    </section>
+
+    <div class="docs-layout">
+      <aside class="sidebar" aria-label="设计规范目录">
+        <div class="sidebar-title"><span>CONTENTS</span><small>规范目录</small></div>
+        <div class="nav-group"><span>FOUNDATIONS</span>
+          <a class="nav-item" href="#color" data-nav="color"><b>01</b>颜色规范</a>
+          <a class="nav-item" href="#typography" data-nav="typography"><b>02</b>字体规范</a>
+          <a class="nav-item" href="#spacing" data-nav="spacing"><b>03</b>间距规范</a>
+          <a class="nav-item" href="#radius" data-nav="radius"><b>04</b>圆角规范</a>
+          <a class="nav-item" href="#effects" data-nav="effects"><b>05</b>效果规范</a>
+        </div>
+        <div class="nav-group"><span>COMPONENTS</span>
+          <a class="nav-item" href="#button" data-nav="button"><b>06</b>按钮组件</a>
+          <a class="nav-item" href="#icon" data-nav="icon"><b>07</b>图标规范</a>
+          <a class="nav-item" href="#input" data-nav="input"><b>08</b>输入框组件</a>
+        </div>
+        <div class="nav-group"><span>RESOURCES</span><a class="nav-item" href="#skill-docs" data-nav="skill-docs"><b>09</b>Skill 文档</a></div>
+        <div class="sidebar-footer"><span>OpsDesign System</span><small>Last update · 2026.04</small></div>
+      </aside>
+
+      <div class="docs-content">
+        <section class="spec-page" id="color" data-section="color">
+          <div class="section-hero"><span>01 · COLOR FOUNDATIONS</span><h2>颜色建立产品秩序</h2><p>从基础色阶到语义引用，统一产品中的颜色选择、组合与交付方式，让页面、组件和状态保持一致。</p><div class="chip-flow"><i>基础色阶 Primitive</i><b>→</b><i>语义颜色 Semantic</i><b>→</b><i>组件与页面应用</i></div></div>
+          <article class="doc-block"><header><span>01 / COLOR SYSTEM</span><h3>颜色架构与使用原则</h3><p>基础色阶维护原始色值，语义变量表达使用目的，页面与组件只消费语义颜色。</p></header><div class="three-cards"><div><b>01</b><h4>基础色阶</h4><p>原始颜色与透明度</p><code>Color Primitives</code></div><div><b>02</b><h4>语义颜色</h4><p>按用途建立稳定映射</p><code>Semantic Tokens</code></div><div><b>03</b><h4>应用层</h4><p>组件与页面保持一致</p><code>Components / Pages</code></div></div></article>
+          <article class="doc-block"><header><span>02 / COLOR SYSTEM</span><h3>基础色板与色阶</h3><p>基础色阶为语义变量提供稳定来源，实际设计优先选择语义颜色。</p></header><div class="palette-card"><div class="palette-title"><div><h4>主题蓝 · Brand Blue</h4><p>品牌识别、主要操作、选中与聚焦；500 为默认主题色。</p></div><code>Color Primitives</code></div><div class="swatches blue-swatches"><i data-label="50 · #EEF3FF"></i><i data-label="100 · #DFE8FF"></i><i data-label="200 · #BFD1FF"></i><i data-label="300 · #91AFFF"></i><i data-label="400 · #5D86FF"></i><i data-label="500 · #2361FF"></i><i data-label="600 · #1749DB"></i><i data-label="700 · #153BB1"></i><i data-label="800 · #18358A"></i><i data-label="900 · #182F6D"></i></div></div><div class="palette-card"><div class="palette-title"><div><h4>中性色 · Neutral</h4><p>页面结构、文字层级、容器背景与分隔。</p></div><code>Color Primitives</code></div><div class="swatches neutral-swatches"><i data-label="0 · #FFFFFF"></i><i data-label="100 · #F1F2F4"></i><i data-label="200 · #DFE1E6"></i><i data-label="300 · #C8CBD1"></i><i data-label="400 · #A5A9B1"></i><i data-label="500 · #7A808B"></i><i data-label="600 · #5D6470"></i><i data-label="700 · #414852"></i><i data-label="800 · #2B3038"></i><i data-label="900 · #181B1F"></i></div></div></article>
+          <article class="doc-block split-block"><div><header><span>03 / SEMANTIC COLOR</span><h3>语义颜色引用</h3><p>变量表达“用在哪里”，模式切换由同名语义映射完成。</p></header><ul class="token-list"><li><code>bg/canvas</code><span>页面基础背景</span></li><li><code>text/primary</code><span>主要内容文字</span></li><li><code>icon/secondary</code><span>次级操作图标</span></li><li><code>border/subtle</code><span>轻量分隔边界</span></li></ul></div><div class="callout"><span>ACCESSIBILITY</span><strong>4.5 : 1</strong><p>正文与长文本的最低对比度。状态信息不能只依赖颜色表达。</p></div></article>
+          <div class="figma-full-content" data-board-content="color"></div>
+        </section>
+
+        <section class="spec-page" id="typography" data-section="typography">
+          <div class="section-hero"><span>02 · TYPOGRAPHY</span><h2>字体规范</h2><p>从字体家族、字号、行高、字重与字距，到界面语义和业务场景的完整规则。</p><div class="chip-flow"><i>B 端后台</i><i>变量驱动</i><i>Auto Layout</i><i>PingFang SC</i></div></div>
+          <article class="doc-block font-intro"><div class="font-sample"><small>DEFAULT INTERFACE FONT</small><b>Ag 字</b><p>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 · 产品设计规范</p></div><div class="font-notes"><div><h4>PingFang SC / 苹方</h4><p>中文界面主字体，覆盖 Regular、Medium 与 Semibold。</p></div><div><h4>Inter</h4><p>英文、数字、指标与数据展示。</p></div><div><h4>Roboto Mono</h4><p>代码、Token、ID 与变量路径。</p></div></div></article>
+          <article class="doc-block"><header><span>TYPOGRAPHY STYLES</span><h3>核心文本样式</h3><p>以“语义 + 层级”命名，业务页面仅调用样式，不单独覆盖字号、行高或字重。</p></header><div class="table-wrap"><table><thead><tr><th>样式</th><th>预览</th><th>字号 / 行高 / 字重</th><th>典型场景</th></tr></thead><tbody><tr><td>Display / Large</td><td class="type-display">页面展示标题</td><td>32 / 40 / Bold</td><td>数据大盘、引导页</td></tr><tr><td>Heading / Page</td><td class="type-page">页面标题</td><td>24 / 32 / Bold</td><td>页面一级标题</td></tr><tr><td>Heading / Section</td><td class="type-section">区域标题</td><td>20 / 28 / Bold</td><td>模块、分区标题</td></tr><tr><td>Body / Default</td><td>用于承载主要阅读内容</td><td>14 / 22 / Regular</td><td>正文、表单说明</td></tr><tr><td>Label / Small</td><td class="type-small">紧凑标签</td><td>12 / 20 / Medium</td><td>Tag、紧凑控件</td></tr><tr><td>Code / Default</td><td><code>const value = 12;</code></td><td>13 / 20 / Regular</td><td>代码、ID、路径</td></tr></tbody></table></div></article>
+          <div class="figma-full-content" data-board-content="typography"></div>
+        </section>
+
+        <section class="spec-page" id="spacing" data-section="spacing">
+          <div class="section-hero"><span>03 · SPACING</span><h2>间距规范</h2><p>以 4px 基础网格统一页面、容器与元素之间的空间秩序，通过语义间距和密度模式表达关联关系。</p><div class="chip-flow"><i>4px Grid</i><i>Density</i><i>Auto Layout</i><i>Spacing Token</i></div></div>
+          <article class="doc-block"><header><span>SPACING SCALE</span><h3>间距基础变量</h3><p>基础尺度用于变量映射，不直接表达业务含义；优先使用语义 Token。</p></header><div class="space-scale"><div style="--space:4px"><i></i><b>4</b><code>spacing/1</code></div><div style="--space:8px"><i></i><b>8</b><code>spacing/2</code></div><div style="--space:12px"><i></i><b>12</b><code>spacing/3</code></div><div style="--space:16px"><i></i><b>16</b><code>spacing/4</code></div><div style="--space:24px"><i></i><b>24</b><code>spacing/6</code></div><div style="--space:32px"><i></i><b>32</b><code>spacing/8</code></div><div style="--space:48px"><i></i><b>48</b><code>spacing/12</code></div><div style="--space:64px"><i></i><b>64</b><code>spacing/16</code></div></div></article>
+          <article class="doc-block"><header><span>DENSITY</span><h3>信息密度与语义层级</h3><p>先判断关系，再选择距离。组件内部使用 component token，页面结构使用 layout token。</p></header><div class="density-grid"><div><span>COMPACT</span><b>高密度工作台</b><p>表格、工具栏、复杂筛选</p><i class="density-demo compact"></i></div><div><span>DEFAULT</span><b>默认产品界面</b><p>表单、列表、常规页面</p><i class="density-demo normal"></i></div><div><span>LOOSE</span><b>展示与阅读场景</b><p>介绍页、空状态、引导页</p><i class="density-demo loose"></i></div></div></article>
+          <div class="figma-full-content" data-board-content="spacing"></div>
+        </section>
+
+        <section class="spec-page" id="radius" data-section="radius">
+          <div class="section-hero"><span>04 · RADIUS</span><h2>圆角规范</h2><p>以克制、一致、可解释的圆角体系定义控件边界与容器层级，覆盖组件映射与嵌套关系。</p><div class="chip-flow"><i>Radius Token</i><i>Component Mapping</i><i>Nested Radius</i><i>Auto Layout</i></div></div>
+          <article class="doc-block"><header><span>RADIUS SCALE</span><h3>圆角基础变量</h3><p>使用 0、2、4、6、8、12、999 七档标准值，不引入用途重叠的 10px 圆角。</p></header><div class="radius-grid"><div><code>radius/none</code><b>0px</b><span style="--r:0"></span><small>连续结构、表格</small></div><div><code>radius/xs</code><b>2px</b><span style="--r:2px"></span><small>标签、状态块</small></div><div><code>radius/sm</code><b>4px</b><span style="--r:4px"></span><small>按钮、输入框</small></div><div><code>radius/md</code><b>6px</b><span style="--r:6px"></span><small>卡片、菜单</small></div><div><code>radius/lg</code><b>8px</b><span style="--r:8px"></span><small>弹窗、重点容器</small></div><div><code>radius/xl</code><b>12px</b><span style="--r:12px"></span><small>特殊强调区域</small></div><div><code>radius/full</code><b>999px</b><span style="--r:999px"></span><small>头像、胶囊标签</small></div></div><p class="inline-note">不使用 10px：它位于 8px 与 12px 之间，缺少独立语义，会增加判断成本。</p></article>
+          <div class="figma-full-content" data-board-content="radius"></div>
+        </section>
+
+        <section class="spec-page" id="effects" data-section="effects">
+          <div class="section-hero"><span>05 · EFFECTS FOUNDATIONS</span><h2>效果建立空间层级</h2><p>通过投影、背景模糊、渐进模糊、毛玻璃和遮罩，建立清晰、统一且可复用的界面层级。</p><div class="chip-flow"><i>Shadow</i><i>Blur</i><i>Progressive Blur</i><i>Glass</i><i>Overlay</i></div></div>
+          <article class="doc-block"><header><span>03 / SHADOW</span><h3>投影样式</h3><p>投影强度与界面层级对应。越临时、越需要聚焦的内容，投影等级越高。</p></header><div class="shadow-grid"><div><span class="shadow-preview shadow-xs"><b>静态小卡片</b><small>分隔、轻微抬升</small></span><code>Shadow/XS</code></div><div><span class="shadow-preview shadow-sm"><b>可点击容器</b><small>卡片、按钮组</small></span><code>Shadow/SM</code></div><div><span class="shadow-preview shadow-md"><b>悬浮工具</b><small>菜单、选择器</small></span><code>Shadow/MD</code></div><div><span class="shadow-preview shadow-lg"><b>对话框</b><small>抽屉、浮层</small></span><code>Shadow/LG</code></div><div><span class="shadow-preview shadow-xl"><b>关键通知</b><small>最高层级</small></span><code>Shadow/XL</code></div></div></article>
+          <article class="doc-block effect-combo"><div class="glass-demo"><span></span><div><b>Glass / Background Blur</b><p>填充、描边、模糊与投影共同建立毛玻璃层级。</p></div></div><ul class="check-list"><li>先使用背景与描边建立结构</li><li>再通过投影强化前后层级</li><li>为不支持模糊的环境提供降级方案</li></ul></article>
+          <div class="figma-full-content" data-board-content="effects"></div>
+        </section>
+
+        <section class="spec-page" id="button" data-section="button">
+          <div class="section-hero"><span>06 · COMPONENTS</span><h2>按钮 Button</h2><p>用于触发即时操作。通过统一类型、尺寸、内容、状态和组合方式，建立稳定且可预测的操作层级。</p><div class="chip-flow"><i>Button 组件</i><i>Button Group 组件</i></div></div>
+          <article class="doc-block"><header><span>TYPE &amp; SIZE</span><h3>类型与尺寸</h3><p>一个区域最多一个 Primary。Danger 表达风险语义，不参与普通按钮的视觉层级排序。</p></header><div class="button-showcase"><div><button class="demo-btn primary">保存配置</button><code>Primary</code><p>当前区域主要操作</p></div><div><button class="demo-btn secondary">预览</button><code>Secondary</code><p>重要性低于主操作</p></div><div><button class="demo-btn text">查看详情</button><code>Text</code><p>行内及卡片辅助操作</p></div><div><button class="demo-btn danger">删除项目</button><code>Danger</code><p>高风险或不可逆操作</p></div></div></article>
+          <article class="doc-block"><header><span>STATES</span><h3>内容与交互状态</h3><p>按钮文案优先使用“动词”或“动词 + 对象”，默认使用 Medium 尺寸。</p></header><div class="state-strip"><button class="demo-btn primary">Default</button><button class="demo-btn primary hover">Hover</button><button class="demo-btn primary focus">Focus</button><button class="demo-btn primary" disabled>Disabled</button><button class="demo-btn primary loading"><i></i>Loading</button></div><div class="do-dont"><div><b>✓ Do</b><p>一个操作区域只保留一个 Primary；危险操作说明后果。</p></div><div><b>× Don’t</b><p>不要重新绘制按钮或用颜色覆盖现有语义。</p></div></div></article>
+          <div class="figma-full-content" data-board-content="button"></div>
+        </section>
+
+        <section class="spec-page" id="icon" data-section="icon">
+          <div class="section-hero"><span>07 · ICON GUIDELINES</span><h2>图标 Icon</h2><p>基于 Remix Icon 4.9.1，统一 24 × 24 网格、语义颜色、尺寸与替换方式，覆盖常用 B 端场景。</p><div class="chip-flow"><i>图标资产</i><i>110 个独立 Component</i><i>icon/primary</i><i>Swap instance</i></div></div>
+          <article class="doc-block"><header><span>SIZE &amp; OPTICAL ALIGNMENT</span><h3>尺寸与光学校准</h3><p>所有源组件保留 24 × 24 基准网格。使用时按场景等比缩放，不拉伸路径。</p></header><div class="icon-size-grid"><div><span><img src="./assets/settings.svg" width="12" height="12" alt=""></span><b>12 px</b><small>极密辅助信息</small></div><div><span><img src="./assets/settings.svg" width="14" height="14" alt=""></span><b>14 px</b><small>紧凑表格</small></div><div><span><img src="./assets/settings.svg" width="16" height="16" alt=""></span><b>16 px</b><small>默认控件</small></div><div><span><img src="./assets/settings.svg" width="20" height="20" alt=""></span><b>20 px</b><small>导航 / 按钮</small></div><div><span><img src="./assets/settings.svg" width="24" height="24" alt=""></span><b>24 px</b><small>标题 / 独立入口</small></div><div><span><img src="./assets/settings.svg" width="32" height="32" alt=""></span><b>32 px</b><small>展示型图标</small></div></div></article>
+          <article class="doc-block icon-rules"><div><h4>推荐：用容器统一对齐</h4><p><span class="icon-box"><img src="./assets/arrow-left.svg" width="18" height="18" alt="返回"></span><span class="icon-box"><img src="./assets/add.svg" width="18" height="18" alt="新增"></span><span class="icon-box"><img src="./assets/information.svg" width="18" height="18" alt="信息"></span></p><small>图标位于固定点击容器中，由 Auto Layout 负责居中与间距。</small></div><div><h4>避免：为“看齐”而拉伸或改路径</h4><p>× 非等比缩放　× 手动挪动节点　× 混用 16 / 20 / 24 px</p><small>需要视觉校准时，调整外部容器，而不是修改源图标。</small></div></article>
+          <div class="figma-full-content" data-board-content="icon"></div>
+        </section>
+
+        <section class="spec-page" id="input" data-section="input">
+          <div class="section-hero"><span>08 · COMPONENTS</span><h2>输入框 Input</h2><p>用于接收单行文本数据。通过统一尺寸、内容、状态、图标与错误反馈，建立清晰、稳定且可访问的录入体验。</p><div class="chip-flow"><i>Input/Standard</i><i>Input/Error</i><i>42 Variants</i></div></div>
+          <article class="doc-block"><header><span>STATES</span><h3>状态</h3><p>状态由交互或校验结果驱动。Focus 使用 2px 视觉强调，Error 使用危险语义边框与状态图标。</p></header><div class="input-states"><label><span>Default</span><input placeholder="请输入内容"></label><label><span>Hover</span><input class="hovered" placeholder="请输入内容"></label><label><span>Focus</span><input class="focused" placeholder="请输入内容"></label><label><span>Disabled</span><input placeholder="不可编辑" disabled></label><label><span>Read-only</span><input value="只读内容" readonly></label></div><div class="input-errors"><label><span>Error / Default</span><span class="input-icon-wrap"><input value="邮箱格式不正确" aria-invalid="true"><img src="./assets/information.svg" width="16" height="16" alt="错误"></span><small>请输入有效的邮箱地址</small></label><label><span>Error / Focus</span><span class="input-icon-wrap"><input class="error-focus" value="邮箱格式不正确" aria-invalid="true"><img src="./assets/information.svg" width="16" height="16" alt="错误"></span><small>错误原因应通过文字说明</small></label></div></article>
+          <article class="doc-block"><header><span>SIZE &amp; TOKEN MAPPING</span><h3>尺寸与变量映射</h3><p>三种高度与横向内边距均绑定 Input 组件变量，默认使用 Medium。</p></header><div class="input-size-grid"><label><span>Small · 24px</span><input class="input-small" placeholder="Small"></label><label><span>Medium · 32px</span><input class="input-medium" placeholder="Medium"></label><label><span>Large · 40px</span><input class="input-large" placeholder="Large"></label></div><ul class="check-list horizontal"><li>Placeholder 不替代 Label</li><li>颜色与图标不是唯一反馈</li><li>Disabled 与 Read-only 语义不同</li></ul></article>
+          <div class="figma-full-content" data-board-content="input"></div>
+        </section>
+
+        <section class="spec-page skill-section" id="skill-docs" data-section="skill-docs">
+          <div class="section-hero resource-hero"><span>09 · RESOURCES</span><h2>Skill 文档下载</h2><p>汇集由设计规范产出的 Skill 说明、Token 映射和组件实践文档，方便后续继续补充与版本管理。</p><div class="chip-flow"><i>Markdown</i><i>Versioned</i><i>Ready for handoff</i></div></div>
+          <div class="download-grid">
+            <article><div class="file-icon">MD</div><div><span>FOUNDATIONS</span><h3>设计基础规范 Skill</h3><p>颜色、字体、间距、圆角与效果的选择逻辑、变量命名及交付检查。</p><small>design-foundations-skill.md · V1.0</small></div><a href="./downloads/design-foundations-skill.md" download>下载 <b>↓</b></a></article>
+            <article><div class="file-icon">MD</div><div><span>COMPONENTS</span><h3>组件规范 Skill</h3><p>按钮、图标和输入框的结构、属性、状态、无障碍与验收规则。</p><small>component-guidelines-skill.md · V1.0</small></div><a href="./downloads/component-guidelines-skill.md" download>下载 <b>↓</b></a></article>
+            <article><div class="file-icon">MD</div><div><span>INDEX</span><h3>Skill 文档索引</h3><p>集中记录当前 Skill 文件、适用范围、版本与后续扩展位置。</p><small>skill-docs-index.md · V1.0</small></div><a href="./downloads/skill-docs-index.md" download>下载 <b>↓</b></a></article>
+          </div>
+          <div class="resource-note"><span>+</span><div><b>可持续扩展</b><p>后续新增 Figma 画板或 Skill 文档时，可以继续追加导航、规范章节和下载卡片。</p></div></div>
+        </section>
+
+        <footer><span>OpsDesign System · V1.0</span><p>Built from Figma design foundations and component guidelines.</p><a href="#top">返回顶部 ↑</a></footer>
+      </div>
+    </div>
+  </main>
+  <script src="./figma-content.js"></script>
+  <script src="./script.js"></script>
+  <script src="../../custom-cursor.js?v=19"></script>
+</body>
+</html>
