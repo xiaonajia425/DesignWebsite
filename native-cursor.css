@@ -1,0 +1,7 @@
+/* Keep the system arrow throughout the dashboard, including links and map dragging. */
+html.native-arrow-cursor,
+html.native-arrow-cursor *,
+html.native-arrow-cursor *::before,
+html.native-arrow-cursor *::after {
+  cursor: default !important;
+}

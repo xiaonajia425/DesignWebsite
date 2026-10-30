@@ -12,7 +12,7 @@ const views = {
   'ai-workflow': {
     type:'核心项目 · AI WORKFLOW',
     title:'AI设计交付流程',
-    src:'./projects/ai-workflow/index.html?v=2026102319'
+    src:'./projects/ai-workflow/index.html?v=2026103003'
   },
   'other-projects': {
     type:'其他项目 · SELECTED WORK',
@@ -22,7 +22,8 @@ const views = {
   'attack-defense': {
     type:'设计资产 · INTERACTIVE DEMO',
     title:'红蓝攻防态势大屏',
-    src:'./projects/attack-defense/index.html?v=2026102319'
+    src:'./projects/attack-defense/index.html?v=2026103002',
+    nativeCursor:true
   },
   'design-guidelines': {
     type:'设计资产 · WEB GUIDE',
@@ -49,6 +50,7 @@ const views = {
 const params = new URLSearchParams(location.search);
 const viewKey = views[params.get('view')] ? params.get('view') : 'ops-agent';
 const view = views[viewKey];
+if (view.nativeCursor) document.documentElement.classList.add('native-arrow-cursor');
 
 const projectSwitch = [
   ['ops-agent','AI智能体平台'],
@@ -64,3 +66,10 @@ document.querySelector('#detail-switch').innerHTML = projectSwitch.map(([key,lab
 document.querySelector('#detail-switch a[aria-current="page"]')?.scrollIntoView({block:'nearest',inline:'nearest'});
 document.querySelector('#detail-frame').src = view.src;
 document.title = `${view.title} · 李丹作品集`;
+
+// Dense dashboard popovers need the native cursor in both the frame and header.
+if (!view.nativeCursor) {
+  const cursorScript = document.createElement('script');
+  cursorScript.src = './custom-cursor.js?v=19';
+  document.body.append(cursorScript);
+}
