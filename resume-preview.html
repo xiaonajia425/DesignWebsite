@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>个人简历 · 李丹作品集</title>
+  <link rel="stylesheet" href="./offline.css?v=1" />
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#edf0f5;color:#30364b;font:14px/1.6 system-ui,sans-serif}
+    .resume-toolbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 24px;background:#fbfbfaf5;border-bottom:1px solid #dce1ec;backdrop-filter:blur(12px)}
+    .resume-toolbar strong{font-size:14px;font-weight:500}.resume-toolbar small{font-size:11px;color:#9198aa;margin-left:12px}
+    .detail-back{font-size:13px;text-decoration:none;color:#3e52d6;white-space:nowrap}
+    .resume-pages{width:min(980px,100%);margin:24px auto;padding:0 18px}.resume-pages img{display:block;width:100%;height:auto;margin:0 0 22px;background:white;box-shadow:0 4px 28px #252d4710}
+    .download-status{font-size:12px;color:#67718c;text-align:center;min-height:20px}
+    @media(max-width:580px){.resume-toolbar{padding:12px 14px}.resume-toolbar small{display:none}.resume-pages{padding:0 8px;margin-top:12px}}
+  </style>
+  <script defer src="./portfolio-analytics.js?v=2"></script>
+  <script defer src="./offline.js?v=1"></script>
+</head>
+<body>
+  <header class="resume-toolbar detail-header"><strong>个人简历<small>共 3 页</small></strong><a class="detail-back" id="resume-download" href="./resume-li-dan.pdf" download="李丹-个人简历.pdf">下载 PDF ↗</a></header>
+  <p class="download-status" role="status" aria-live="polite"></p>
+  <main class="resume-pages" aria-label="个人简历预览">
+    <img src="./assets/resume-pages/page-1.png" width="1325" height="1871" alt="李丹个人简历第 1 页：个人优势与工作经历" />
+    <img src="./assets/resume-pages/page-2.png" width="1325" height="1871" loading="lazy" alt="李丹个人简历第 2 页：项目经历与设计成果" />
+    <img src="./assets/resume-pages/page-3.png" width="1325" height="1871" loading="lazy" alt="李丹个人简历第 3 页：项目成果与教育经历" />
+  </main>
+  <script>
+    const download = document.querySelector('#resume-download');
+    let downloading = false;
+    download.addEventListener('click', async event => {
+      event.preventDefault();
+      if (downloading) return;
+      downloading = true;
+      const status = document.querySelector('.download-status');
+      status.textContent = '正在准备 PDF…';
+      try {
+        const response = await fetch(download.href);
+        if (!response.ok) throw Error('PDF unavailable');
+        const url = URL.createObjectURL(await response.blob());
+        const link = document.createElement('a');
+        link.href = url; link.download = download.download; document.body.append(link); link.click(); link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 60000);
+        status.textContent = 'PDF 已准备好，请查看浏览器下载记录。';
+      } catch { status.textContent = 'PDF 暂时无法下载，请重试。'; }
+      downloading = false;
+    });
+  </script>
+</body>
+</html>

@@ -43,7 +43,7 @@ const views = {
   resume: {
     type:'关于我 · RESUME',
     title:'李丹个人简历',
-    src:'./resume-li-dan.pdf?v=2026102722'
+    src:'./resume-preview.html?v=2026110501'
   }
 };
 

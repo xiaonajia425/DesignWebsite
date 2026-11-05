@@ -106,6 +106,9 @@
   window.addEventListener('online', () => { refresh().catch(() => {}); });
   window.addEventListener('offline', () => { if (latest) render(latest); });
   if ('serviceWorker' in navigator && window.isSecureContext) {
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      navigator.serviceWorker.ready.then(value => { registration = value; return refresh(); }).catch(() => {});
+    });
     navigator.serviceWorker.addEventListener('message', event => {
       if (event.data?.type === 'PORTFOLIO_OFFLINE_STATUS') render(event.data);
     });

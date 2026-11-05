@@ -34,7 +34,7 @@
   function context(doc) {
     const url = new URL(doc.URL);
     const directProject = url.pathname.match(/\/projects\/([^/]+)\//);
-    const candidate = url.searchParams.get('view') || (directProject && directProject[1]);
+    const candidate = url.searchParams.get('view') || (directProject && directProject[1]) || (url.pathname.endsWith('/resume-preview.html') ? 'resume' : null);
     const view = Object.prototype.hasOwnProperty.call(projects, candidate)
       ? candidate
       : url.pathname.endsWith('/detail.html') ? 'ops-agent' : null;
@@ -52,6 +52,7 @@
   }
 
   let ready = false;
+  let trackerFailed = false;
   const pending = [];
   const queueKey = 'portfolio.analytics.offline-events';
   function readQueue() {
@@ -87,7 +88,7 @@
     } finally { flushing = false; }
   }
   function send(name, data, doc = document) {
-    if (navigator.onLine === false) { enqueue(record(name, data, doc)); return; }
+    if (navigator.onLine === false || trackerFailed) { enqueue(record(name, data, doc)); return; }
     if (!ready) {
       if (name && pending.length < 20) pending.push([name, data, doc]);
       return;
@@ -177,12 +178,15 @@
   script.dataset.domains = hostname;
   script.dataset.doNotTrack = 'true';
   script.onload = () => {
-    ready = true; loading = false;
+    ready = true; loading = false; trackerFailed = false;
     recordPage();
     for (const event of pending.splice(0)) send(...event);
     flushQueue().catch(() => {});
   };
-  script.onerror = () => { loading = false; };
+  script.onerror = () => {
+    loading = false; trackerFailed = true; recordPage();
+    for (const event of pending.splice(0)) send(...event);
+  };
   document.head.appendChild(script);
   }
   if (navigator.onLine === false) recordPage();
