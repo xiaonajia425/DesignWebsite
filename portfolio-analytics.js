@@ -53,7 +53,41 @@
 
   let ready = false;
   const pending = [];
+  const queueKey = 'portfolio.analytics.offline-events';
+  function readQueue() {
+    try {
+      const records = JSON.parse(localStorage.getItem(queueKey) || '[]');
+      return Array.isArray(records) ? records.filter(r => r && r.page && r.timestamp > Date.now() / 1000 - 7 * 86400).slice(-200) : [];
+    } catch { return []; }
+  }
+  function storeQueue(records) {
+    try { localStorage.setItem(queueKey, JSON.stringify(records.slice(-200))); } catch { /* Analytics storage is optional. */ }
+  }
+  function enqueue(record) { storeQueue([...readQueue(), record]); }
+  function record(name, data, doc) {
+    return { id: `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`, name, data, page: context(doc), timestamp: Math.floor(Date.now() / 1000) };
+  }
+  let flushing = false;
+  async function flushQueue() {
+    if (!ready || flushing || navigator.onLine === false) return;
+    flushing = true;
+    const flush = async () => {
+      for (const event of readQueue()) {
+        if (navigator.onLine === false) break;
+        try {
+          await window.umami.track(props => ({ ...props, ...event.page, timestamp: event.timestamp, ...(event.name ? { name: event.name, data: event.data } : {}) }));
+          if (navigator.onLine === false) break;
+          storeQueue(readQueue().filter(r => r.id !== event.id));
+        } catch { break; }
+      }
+    };
+    try {
+      if (navigator.locks?.request) await navigator.locks.request('portfolio-analytics-sync', flush);
+      else await flush();
+    } finally { flushing = false; }
+  }
   function send(name, data, doc = document) {
+    if (navigator.onLine === false) { enqueue(record(name, data, doc)); return; }
     if (!ready) {
       if (name && pending.length < 20) pending.push([name, data, doc]);
       return;
@@ -65,7 +99,7 @@
         ...page,
         ...(name ? { name, data } : {})
       }));
-      if (result && typeof result.catch === 'function') result.catch(() => {});
+      if (result && typeof result.catch === 'function') result.catch(() => enqueue(record(name, data, doc)));
     } catch { /* Analytics must never interrupt the portfolio. */ }
   }
 
@@ -129,6 +163,12 @@
   }
   bind(document);
 
+  let pageRecorded = false;
+  function recordPage() { if (!pageRecorded) { pageRecorded = true; send(null, null); } }
+  let loading = false;
+  function loadTracker() {
+  if (ready || loading || navigator.onLine === false) return;
+  loading = true;
   const script = document.createElement('script');
   script.src = 'https://cloud.umami.is/script.js';
   script.async = true;
@@ -137,9 +177,15 @@
   script.dataset.domains = hostname;
   script.dataset.doNotTrack = 'true';
   script.onload = () => {
-    ready = true;
-    send(null, null);
+    ready = true; loading = false;
+    recordPage();
     for (const event of pending.splice(0)) send(...event);
+    flushQueue().catch(() => {});
   };
+  script.onerror = () => { loading = false; };
   document.head.appendChild(script);
+  }
+  if (navigator.onLine === false) recordPage();
+  else loadTracker();
+  window.addEventListener('online', () => { if (ready) flushQueue().catch(() => {}); else loadTracker(); });
 })();

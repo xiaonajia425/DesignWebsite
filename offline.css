@@ -1,0 +1,25 @@
+.portfolio-header-actions{display:flex;align-items:center;gap:22px;flex:none}
+.portfolio-offline-button{appearance:none;font-family:inherit;font-size:12px;font-weight:500;line-height:1.5;cursor:pointer;border:1px solid #dce0ec;border-radius:20px;padding:7px 13px;background:transparent;color:#596078;white-space:nowrap;transition:border-color .2s,color .2s}
+.portfolio-offline-button:hover{border-color:#465bd3;color:#3e52d6}
+.portfolio-offline-standalone{position:fixed;right:20px;top:16px;z-index:999;background:#fbfbfa}
+.portfolio-offline-dialog{box-sizing:border-box;width:min(520px,calc(100vw - 32px));max-height:calc(100vh - 48px);overflow:auto;border:1px solid #e0e4ef;border-radius:22px;padding:38px;background:#fbfbfa;color:#252831;box-shadow:0 24px 100px #10152b35;font:14px/1.7 "DM Sans",system-ui,sans-serif;z-index:10000}
+.portfolio-offline-dialog::backdrop{background:#14182d66;backdrop-filter:blur(5px)}
+.portfolio-offline-dialog form{margin:0}
+.portfolio-offline-dialog .offline-close{position:absolute;right:16px;top:12px;background:transparent;border:0;padding:4px 10px;font:26px/1.2 system-ui;color:#72788b;cursor:pointer}
+.portfolio-offline-dialog .offline-eyebrow{font:10px/1.6 monospace;letter-spacing:.12em;color:#78839f;margin:0 0 14px}
+.portfolio-offline-dialog h2{font-size:29px;line-height:1.3;letter-spacing:-.04em;margin:0 0 16px;font-weight:600;color:#252831}
+.portfolio-offline-dialog .offline-intro{font-size:14px;color:#737b90;margin:0 0 26px}
+.portfolio-offline-dialog .offline-status{font-size:14px;color:#3e52d6;margin-bottom:13px;min-height:24px}
+.portfolio-offline-dialog progress{display:block;appearance:none;width:100%;height:7px;border:0;border-radius:9px;overflow:hidden;background:#e8ecf5;accent-color:#3e52d6}
+.portfolio-offline-dialog progress::-webkit-progress-bar{background:#e8ecf5;border-radius:9px}
+.portfolio-offline-dialog progress::-webkit-progress-value{background:#3e52d6;border-radius:9px;transition:width .2s}
+.portfolio-offline-dialog progress::-moz-progress-bar{background:#3e52d6;border-radius:9px}
+.portfolio-offline-dialog .offline-detail{font:11px/1.5 monospace;color:#828b9d;margin:10px 0 20px}
+.portfolio-offline-dialog .offline-note{font-size:12px;color:#8a92a4;margin:0 0 24px}
+.portfolio-offline-dialog .offline-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.portfolio-offline-dialog .offline-save,.portfolio-offline-dialog .offline-pause{border:0;border-radius:10px;padding:12px 18px;font:500 13px/1.5 system-ui;cursor:pointer}
+.portfolio-offline-dialog .offline-save{background:#3e52d6;color:#fff}
+.portfolio-offline-dialog .offline-pause{background:#e9edf7;color:#56617a}
+.portfolio-offline-dialog button:disabled{opacity:.55;cursor:default}
+.portfolio-offline-dialog [hidden]{display:none!important}
+@media(max-width:760px){.portfolio-header-actions{gap:12px}.portfolio-offline-button{font-size:11px;padding:5px 9px}.detail-header .portfolio-header-actions{grid-column:2;grid-row:1;justify-self:end}.portfolio-offline-dialog{padding:30px 24px}.portfolio-offline-dialog h2{font-size:25px}}

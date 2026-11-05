@@ -64,7 +64,10 @@ document.querySelector('#detail-switch').innerHTML = projectSwitch.map(([key,lab
   return `<a href="./detail.html?view=${key}"${current}>${label}</a>`;
 }).join('');
 document.querySelector('#detail-switch a[aria-current="page"]')?.scrollIntoView({block:'nearest',inline:'nearest'});
-document.querySelector('#detail-frame').src = view.src;
+document.querySelector('#detail-frame').src = viewKey === 'figma-guidelines' && !navigator.onLine ? './offline-figma.html' : view.src;
+window.addEventListener('online', () => {
+  if (viewKey === 'figma-guidelines') document.querySelector('#detail-frame').src = view.src;
+});
 document.title = `${view.title} · 李丹作品集`;
 
 // Dense dashboard popovers need the native cursor in both the frame and header.

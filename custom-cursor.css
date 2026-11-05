@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@600&display=swap');
+@import url("./assets/fonts/fonts.css?v=1");
 /* The hero arrow and label are shared by the homepage, navigation and embedded projects. */
 .portfolio-pointer{position:fixed;top:0;left:0;z-index:2147483647;pointer-events:none;opacity:0;will-change:transform;transition:opacity .12s ease;transform:translate(-100px,-100px)}
 .portfolio-pointer>svg{width:26px;height:33px;display:block;fill:#100e11;overflow:visible;filter:drop-shadow(0 1px 1px #fff6)}

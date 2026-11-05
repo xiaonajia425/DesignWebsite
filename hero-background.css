@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap');
+@import url("./assets/fonts/fonts.css?v=1");
 
 /* The reference uses a hollow, tiled blueprint, rather than a continuous grid. */
 .hero{isolation:isolate;background:#fdfdfc;--hero-heat:#8f6df7;--hero-tile:#fdfdfc;--hero-rule:#ececec}
