@@ -3,16 +3,18 @@
   if (window.self !== window.top || window.__portfolioOffline) return;
   window.__portfolioOffline = true;
   const base = new URL('.', document.currentScript.src);
-  let registration, latest, opening = false;
+  const toolsEnabled = new URLSearchParams(location.search).get('offline') === '1';
+  if (toolsEnabled) document.documentElement.setAttribute('data-offline-tools', '');
+  let registration, latest, opening = toolsEnabled;
   const launcher = document.createElement('button');
   launcher.type = 'button'; launcher.className = 'portfolio-offline-button';
   launcher.textContent = '离线浏览'; launcher.setAttribute('aria-haspopup', 'dialog');
   const header = document.querySelector('.header, .detail-header');
   const endLink = header?.querySelector('.resume-link, .detail-back');
-  if (endLink) {
+  if (toolsEnabled && endLink) {
     const actions = document.createElement('div'); actions.className = 'portfolio-header-actions';
     endLink.replaceWith(actions); actions.append(launcher, endLink);
-  } else { launcher.classList.add('portfolio-offline-standalone'); document.body.append(launcher); }
+  } else if (toolsEnabled) { launcher.classList.add('portfolio-offline-standalone'); document.body.append(launcher); }
 
   const dialog = document.createElement('dialog');
   dialog.className = 'portfolio-offline-dialog'; dialog.setAttribute('aria-labelledby', 'offline-title');
@@ -63,8 +65,12 @@
     try { await refresh(); } catch { message.textContent = '暂时无法检查离线内容，请刷新后重试。'; }
   }
   launcher.addEventListener('click', open);
-  dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
-  dialog.addEventListener('close', () => { opening = false; launcher.focus(); });
+  dialog.addEventListener('click', event => {
+    if (event.target !== dialog) return;
+    const rect = dialog.getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+  });
+  dialog.addEventListener('close', () => { opening = false; if (launcher.isConnected) launcher.focus(); });
   pauseButton.addEventListener('click', async () => {
     pauseButton.disabled = true; message.textContent = '正在暂停，已保存的内容会保留…';
     try { await request('PAUSE_OFFLINE_SAVE'); } finally { pauseButton.disabled = false; }

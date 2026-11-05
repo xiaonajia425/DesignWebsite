@@ -23,3 +23,10 @@
 .portfolio-offline-dialog button:disabled{opacity:.55;cursor:default}
 .portfolio-offline-dialog [hidden]{display:none!important}
 @media(max-width:760px){.portfolio-header-actions{gap:12px}.portfolio-offline-button{font-size:11px;padding:5px 9px}.detail-header .portfolio-header-actions{grid-column:2;grid-row:1;justify-self:end}.portfolio-offline-dialog{padding:30px 24px}.portfolio-offline-dialog h2{font-size:25px}}
+
+/* Native modal dialogs sit above the custom cursor's document layer. */
+@media(hover:hover) and (pointer:fine){
+ html.portfolio-cursor-enabled:has(dialog:modal),html.portfolio-cursor-enabled:has(dialog:modal) body,html.portfolio-cursor-enabled:has(dialog:modal) *{cursor:auto!important}
+ html.portfolio-cursor-enabled:has(dialog:modal) button:not(:disabled),html.portfolio-cursor-enabled:has(dialog:modal) a[href]{cursor:pointer!important}
+ html.portfolio-cursor-enabled:has(dialog:modal) .portfolio-pointer{visibility:hidden!important}
+}
